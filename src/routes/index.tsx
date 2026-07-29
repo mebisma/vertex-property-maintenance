@@ -691,7 +691,7 @@ function Testimonials() {
               className="reveal group relative rounded-3xl border border-white/10 bg-white/5 p-8 transition-colors hover:bg-ember"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <Quote className="h-8 w-8 text-ember transition-colors group-hover:text-white" />
+              <QuoteIcon className="h-8 w-8 text-ember transition-colors group-hover:text-white" />
               <blockquote className="mt-6 text-lg leading-relaxed text-white/90">
                 "{q.body}"
               </blockquote>
