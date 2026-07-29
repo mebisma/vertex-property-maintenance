@@ -11,7 +11,7 @@ import {
   KeyRound,
   BarChart3,
   Sparkles,
-  Quote,
+  Quote as QuoteIcon,
   Check,
   Play,
 } from "lucide-react";
