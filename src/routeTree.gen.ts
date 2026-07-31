@@ -12,6 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkRouteImport } from './routes/work'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as RequestRouteImport } from './routes/request'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
 const WorkRoute = WorkRouteImport.update({
@@ -29,6 +32,21 @@ const ReviewsRoute = ReviewsRouteImport.update({
   path: '/reviews',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RequestRoute = RequestRouteImport.update({
+  id: '/request',
+  path: '/request',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,12 +55,18 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/request': typeof RequestRoute
   '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRoute
   '/work': typeof WorkRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/request': typeof RequestRoute
   '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRoute
   '/work': typeof WorkRoute
@@ -50,20 +74,48 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/request': typeof RequestRoute
   '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRoute
   '/work': typeof WorkRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/reviews' | '/services' | '/work'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/request'
+    | '/reviews'
+    | '/services'
+    | '/work'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/reviews' | '/services' | '/work'
-  id: '__root__' | '/' | '/reviews' | '/services' | '/work'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/request'
+    | '/reviews'
+    | '/services'
+    | '/work'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/request'
+    | '/reviews'
+    | '/services'
+    | '/work'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  RequestRoute: typeof RequestRoute
   ReviewsRoute: typeof ReviewsRoute
   ServicesRoute: typeof ServicesRoute
   WorkRoute: typeof WorkRoute
@@ -92,6 +144,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReviewsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/request': {
+      id: '/request'
+      path: '/request'
+      fullPath: '/request'
+      preLoaderRoute: typeof RequestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,6 +177,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  RequestRoute: RequestRoute,
   ReviewsRoute: ReviewsRoute,
   ServicesRoute: ServicesRoute,
   WorkRoute: WorkRoute,
