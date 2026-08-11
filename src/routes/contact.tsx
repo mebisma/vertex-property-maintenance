@@ -28,7 +28,6 @@ export const Route = createFileRoute("/contact")({
 const DETAILS = [
   { icon: Phone, t: "Dispatch line", v: "(800) 555-0142", href: "tel:+18005550142", note: "Staffed 24 hours a day, every day" },
   { icon: Mail, t: "Email", v: "dispatch@vertexpm.com", href: "mailto:dispatch@vertexpm.com", note: "Replies within one business hour" },
-  { icon: MapPin, t: "Head office", v: "1840 Foundry Ave, Suite 300", note: "Crews dispatched from four regional yards" },
   { icon: Clock, t: "Office hours", v: "Mon–Fri, 7:00am – 6:00pm", note: "Emergency crews available around the clock" },
 ];
 
@@ -38,9 +37,9 @@ function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact us"
-        title="Talk to a real"
+        title="Talk to a"
         accent="coordinator."
-        lead="No phone trees, no ticket black holes. Call the dispatch line or send your request below and a named coordinator picks it up."
+        lead="No phone trees, no ticket black holes. Call the dispatch line or send your request below and our coordinator picks it up."
       />
 
       <section className="bg-background py-24">

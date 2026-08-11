@@ -38,17 +38,37 @@ const VALUES = [
 ];
 
 const TEAM = [
-  { img: team1, name: "Marcus Vance", role: "President & Founder" },
+  { img: team1, name: "Maria Vance", role: "President & Founder" },
   { img: team2, name: "Renee Okafor", role: "Director of Operations" },
-  { img: team3, name: "Danny Ruiz", role: "Head of Trades & Safety" },
+  { img: team3, name: "Rue Jacob", role: "Head of Trades & Safety" },
 ];
 
 const TIMELINE = [
-  { y: "2003", t: "Founded", d: "Started as a two-van handyman outfit serving twelve local buildings." },
-  { y: "2009", t: "Trades in-house", d: "Brought electrical, HVAC and carpentry onto payroll instead of brokering them." },
-  { y: "2015", t: "24/7 dispatch", d: "Launched a staffed emergency line with live coordinators, not an answering service." },
-  { y: "2020", t: "Seasonal division", d: "Added tree removal and route-based snow operations for commercial portfolios." },
-  { y: "2026", t: "Today", d: "140 tradespeople, 1,800+ properties, and 24,000 work orders closed every year." },
+  {
+    y: "2003",
+    t: "Where It Started",
+    d: "Vertex began with services and a simple goal: deliver dependable maintenance without the runaround."
+  },
+  {
+    y: "2009",
+    t: "Building Our Own Team",
+    d: "We brought core trades in-house, expanding our capabilities across electrical, HVAC, carpentry, and general repairs."
+  },
+  {
+    y: "2015",
+    t: "Maintenance, Around the Clock",
+    d: "Our 24/7 dispatch operation launched, giving property teams a real person to call when something could not wait."
+  },
+  {
+    y: "2020",
+    t: "More Than Maintenance",
+    d: "We expanded into commercial landscaping, tree removal, and seasonal snow services to keep properties covered year-round."
+  },
+  {
+    y: "2026",
+    t: "Built for Property Managers",
+    d: "Today, our growing network supports 1,800+ properties with 140+ skilled tradespeople and thousands of work orders completed each year."
+  },
 ];
 
 function AboutPage() {
@@ -155,46 +175,21 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-border bg-muted py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <h2 data-reveal className="reveal font-display text-3xl font-black md:text-5xl">
-            Leadership.
-          </h2>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {TEAM.map((m, i) => (
-              <figure
-                key={m.name}
-                data-reveal
-                data-reveal-delay={String(i * 90)}
-                className="reveal group overflow-hidden rounded-3xl border border-border bg-card"
-              >
-                <div className="aspect-[4/5] overflow-hidden">
-                  <img
-                    src={m.img}
-                    alt={m.name}
-                    width={1200}
-                    height={1500}
-                    loading="lazy"
-                    className="h-full w-full object-cover grayscale transition-all duration-[1.2s] group-hover:scale-105 group-hover:grayscale-0"
-                  />
-                </div>
-                <figcaption className="p-6">
-                  <p className="font-display text-lg font-extrabold">{m.name}</p>
-                  <p className="text-sm text-muted-foreground">{m.role}</p>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-          <div data-reveal className="reveal mt-16 text-center">
-            <Link
-              to="/contact"
-              className="inline-flex rounded-xl bg-ember px-8 py-4 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-ember"
-            >
-              Work with us
-            </Link>
-          </div>
-        </div>
-      </section>
+      
+<section className="border-t border-border bg-muted py-24">
+  <div className="mx-auto max-w-7xl px-6">
+    <div data-reveal className="reveal mt-16 text-center">
+      <Link
+        to="/contact"
+        className="inline-flex rounded-xl bg-ember px-8 py-4 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-ember"
+      >
+        Work with us
+      </Link>
+    </div>
+  </div>
+</section>
+
+
     </>
   );
 }

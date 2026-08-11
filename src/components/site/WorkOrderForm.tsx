@@ -4,6 +4,10 @@ import { toast } from "sonner";
 
 import { PRIORITIES, WORK_ORDER_TYPES } from "@/lib/site-data";
 
+// Google Apps Script web app URL (must end in /exec)
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbwpiC9PatvIIxDSs0JlandSOxkawwNQWromabTdzXxAUhFdT_euEgqsp6sUHi0A1qcO/exec";
+
 type Fields = {
   name: string;
   email: string;
@@ -62,14 +66,44 @@ export function WorkOrderForm() {
       return;
     }
     setSending(true);
-    await new Promise((r) => setTimeout(r, 900));
+
     const ref = `WO-${Math.floor(100000 + Math.random() * 899999)}`;
-    setSending(false);
-    setDone(ref);
-    setF(EMPTY);
-    toast.success(`Work order ${ref} submitted`, {
-      description: "A coordinator will confirm your ticket shortly.",
-    });
+
+    // Map this form's field names to the columns code.gs expects
+    const payload = {
+      fullName: f.name,
+      email: f.email,
+      phone: f.phone,
+      address: f.property,
+      service: f.type,
+      priority: f.priority,
+      description: `[${ref}] ${f.message}`,
+    };
+
+    try {
+      // mode: "no-cors" is required because Apps Script web apps don't send
+      // CORS headers. We can't read the response, so we optimistically
+      // treat a resolved fetch as success — network/DNS errors still throw.
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain" }, // avoids a CORS preflight
+        body: JSON.stringify(payload),
+      });
+
+      setSending(false);
+      setDone(ref);
+      setF(EMPTY);
+      toast.success(`Work order ${ref} submitted`, {
+        description: "A coordinator will confirm your ticket shortly.",
+      });
+    } catch (err) {
+      console.error("Work order submission failed:", err);
+      setSending(false);
+      toast.error("Something went wrong submitting your request", {
+        description: "Please try again or call us directly.",
+      });
+    }
   };
 
   if (done) {
@@ -160,7 +194,7 @@ export function WorkOrderForm() {
         </Field>
 
         <Field label="Priority">
-          <div className="grid grid-cols-4 gap-2">
+          <div className="flex flex-wrap gap-2">
             {PRIORITIES.map((p) => (
               <button
                 key={p}
@@ -197,7 +231,11 @@ export function WorkOrderForm() {
         disabled={sending}
         className="group mt-8 inline-flex w-full items-center justify-center gap-3 rounded-xl bg-ember px-8 py-4 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-ember disabled:opacity-70 sm:w-auto"
       >
-        {sending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />}
+        {sending ? (
+          <Loader2 className="h-4 w-4 animate-spin" />
+        ) : (
+          <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+        )}
         {sending ? "Submitting…" : "Submit work order"}
       </button>
       <p className="mt-4 text-xs text-white/40">

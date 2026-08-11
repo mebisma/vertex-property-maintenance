@@ -33,12 +33,12 @@ export function SiteHeader() {
             : "border-white/10 bg-ink/45 backdrop-blur-md"
         }`}
       >
-        <Link to="/" className="group flex items-center gap-3 text-white">
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-ember font-display text-lg font-black text-white transition-transform duration-500 group-hover:rotate-6">
-            V
-          </span>
+        <Link to="/" className="group flex items-center gap-1 text-white">
+          <img src="/logo-icon.png" className="h-12 w-auto object-contain" />
           <span className="leading-none">
-            <span className="block font-display text-base font-extrabold tracking-tight">VERTEX</span>
+            <span className="block font-display text-base font-extrabold tracking-tight">
+              VERTEX
+            </span>
             <span className="block text-[10px] uppercase tracking-[0.24em] text-white/50">
               Property Maintenance
             </span>
@@ -61,11 +61,11 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <a
-            href="tel:+18005550142"
+            href="tel:+18884499349"
             className="hidden items-center gap-2 rounded-xl border border-white/15 px-4 py-2.5 text-sm text-white/80 transition-colors hover:border-ember hover:text-white md:inline-flex"
           >
             <Phone className="h-4 w-4" />
-            (800) 555-0142
+            (888) 449-9349
           </a>
           <Link
             to="/request"

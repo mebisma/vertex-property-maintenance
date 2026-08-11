@@ -45,7 +45,7 @@
   --radius: 0.75rem;
 
   /* Midnight Ember palette */
-  --ink: oklch(0.09 0.03 275);            /* #0a0a1a */
+  --ink: oklch(20.025% 0.07208 272.314);            /* #0a0a1a */
   --midnight-deep: oklch(0.16 0.05 275);  /* #141432 */
   --midnight: oklch(0.26 0.12 275);       /* #1e1e5a */
   --ember: oklch(0.67 0.20 40);           /* #e85d3a */

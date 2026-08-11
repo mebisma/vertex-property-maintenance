@@ -40,7 +40,7 @@ function Home() {
       <Process />
       <ProofStrip />
       <WorkTeaser />
-      <ReviewTeaser />
+      <ReviewTeaser /> 
       <CTA />
     </>
   );
@@ -68,7 +68,7 @@ function Hero() {
           </h1>
           <p data-reveal data-reveal-delay="160" className="reveal mt-6 max-w-xl text-lg text-white/65">
             Vertex Property Maintenance Inc. keeps buildings running — electrical, carpentry,
-            HVAC, handyman, cleaning, tree and snow removal — dispatched from one queue and
+            HVAC, Appliance Repair, handyman, cleaning, tree and snow removal — dispatched from one queue and
             invoiced on one statement.
           </p>
 
@@ -117,7 +117,7 @@ function Hero() {
             <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-xl">
               <p className="text-[11px] uppercase tracking-[0.2em] text-white/60">Live dispatch</p>
               <p className="mt-2 font-display text-2xl font-black">
-                <Counter to={4} suffix="h" /> average response
+                <Counter to={60} suffix="min" /> average response
               </p>
               <p className="mt-1 text-xs text-white/60">Emergency crews rolling in under 60 minutes.</p>
             </div>
@@ -198,29 +198,48 @@ function Layers() {
   );
 }
 
+
 function ServicesStrip() {
+  const displayedServices = SERVICES
+    .filter((s) => s.title !== "Tree Removal")
+    .slice(0, 5);
+
+  const applianceRepair = {
+    slug: "appliance-repair",
+    title: "Appliance Repair",
+    blurb:
+      "Repair and troubleshooting for common household appliances, including refrigerators, washers, dryers, ovens, and more.",
+    icon: SERVICES[0].icon,
+  };
+
+  const services = [...displayedServices, applianceRepair];
+
   return (
     <section className="relative overflow-hidden bg-midnight py-28 text-white">
       <div className="absolute inset-0 bg-grid opacity-40" />
+
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div data-reveal className="reveal max-w-xl">
             <Eyebrow light>Services</Eyebrow>
+
             <h2 className="mt-5 font-display text-4xl font-black leading-tight md:text-6xl">
               The full trade stack.
             </h2>
           </div>
+
           <Link
             to="/services"
             className="group inline-flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-ember"
           >
             View all services
+
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
           </Link>
         </div>
 
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.slice(0, 6).map((s, i) => (
+          {services.map((s, i) => (
             <Link
               key={s.slug}
               to="/services"
@@ -230,44 +249,25 @@ function ServicesStrip() {
               className="reveal group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-7 transition-all duration-500 hover:-translate-y-1.5 hover:border-ember/50 hover:bg-white/[0.07]"
             >
               <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-ember/0 blur-2xl transition-all duration-700 group-hover:bg-ember/30" />
-              <s.icon className="h-7 w-7 text-ember transition-transform duration-500 group-hover:scale-110" />
-              <h3 className="mt-5 font-display text-xl font-extrabold">{s.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/55">{s.blurb}</p>
-            </Link>
-          ))}
-        </div>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {[
-            { img: electric, label: "Electrical" },
-            { img: tree, label: "Tree removal" },
-            { img: snow, label: "Snow removal" },
-          ].map((m, i) => (
-            <div
-              key={m.label}
-              data-reveal
-              data-reveal-delay={String(i * 80)}
-              className="reveal group relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10"
-            >
-              <img
-                src={m.img}
-                alt={`${m.label} service`}
-                width={1200}
-                height={900}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
-              <span className="absolute bottom-5 left-5 font-display text-lg font-extrabold">
-                {m.label}
-              </span>
-            </div>
+              <s.icon className="h-7 w-7 text-ember transition-transform duration-500 group-hover:scale-110" />
+
+              <h3 className="mt-5 font-display text-xl font-extrabold">
+                {s.title}
+              </h3>
+
+              <p className="mt-3 text-sm leading-relaxed text-white/55">
+                {s.blurb}
+              </p>
+            </Link>
           ))}
         </div>
       </div>
     </section>
   );
 }
+
+
 
 function Process() {
   const steps = [
@@ -329,37 +329,68 @@ function ProofStrip() {
   );
 }
 
+
 function WorkTeaser() {
+  const displayedProjects = PROJECTS
+    .filter((p) => p.title !== "Tree Removal")
+    .slice(0, 2);
+
+  const applianceRepair = {
+    year: "2026",
+    title: "Appliance Repair",
+    scope:
+      "We diagnose and repair common household appliance problems, including refrigerators, washers, dryers, ovens, and other everyday appliances.",
+    result:
+      "From troubleshooting to repairs, we help get essential appliances working properly again.",
+  };
+
+  const projects = [...displayedProjects, applianceRepair];
+
   return (
     <section className="bg-background py-28">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div data-reveal className="reveal max-w-xl">
             <Eyebrow>Our work</Eyebrow>
+
             <h2 className="mt-5 font-display text-4xl font-black leading-tight md:text-6xl">
-              Programs we run for other companies.
+              Reliable work for everyday homes.
             </h2>
           </div>
+
           <Link
             to="/work"
             className="group inline-flex items-center gap-2 text-sm font-semibold text-ember"
           >
-            See all case studies
+            See all services
+
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
           </Link>
         </div>
+
         <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {PROJECTS.slice(0, 3).map((p, i) => (
+          {projects.map((p, i) => (
             <article
               key={p.title}
               data-reveal
               data-reveal-delay={String(i * 90)}
               className="reveal group rounded-2xl border border-border bg-card p-8 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lift"
             >
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{p.year}</p>
-              <h3 className="mt-4 font-display text-xl font-extrabold leading-snug">{p.title}</h3>
-              <p className="mt-3 text-sm text-muted-foreground">{p.scope}</p>
-              <p className="mt-5 border-l-2 border-ember pl-4 text-sm font-medium">{p.result}</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                {p.year}
+              </p>
+
+              <h3 className="mt-4 font-display text-xl font-extrabold leading-snug">
+                {p.title}
+              </h3>
+
+              <p className="mt-3 text-sm text-muted-foreground">
+                {p.scope}
+              </p>
+
+              <p className="mt-5 border-l-2 border-ember pl-4 text-sm font-medium">
+                {p.result}
+              </p>
             </article>
           ))}
         </div>
@@ -368,6 +399,9 @@ function WorkTeaser() {
   );
 }
 
+
+
+
 function ReviewTeaser() {
   return (
     <section className="overflow-hidden bg-midnight py-24 text-white">
@@ -375,6 +409,7 @@ function ReviewTeaser() {
         <div data-reveal className="reveal">
           <Eyebrow light>Reviews</Eyebrow>
         </div>
+
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {REVIEWS.slice(0, 3).map((r, i) => (
             <figure
@@ -384,10 +419,15 @@ function ReviewTeaser() {
               className="reveal rounded-2xl border border-white/10 bg-white/[0.04] p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-ember/40"
             >
               <div className="text-ember">{"★".repeat(r.rating)}</div>
-              <blockquote className="mt-4 text-sm leading-relaxed text-white/75">"{r.quote}"</blockquote>
+
+              <blockquote className="mt-4 text-sm leading-relaxed text-white/75">
+                "{r.quote}"
+              </blockquote>
+
               <figcaption className="mt-6 text-xs text-white/45">
-                <span className="block font-semibold text-white">{r.name}</span>
-                {r.role}
+                <span className="block font-semibold text-white">
+                  {r.name}
+                </span>
               </figcaption>
             </figure>
           ))}
@@ -396,6 +436,8 @@ function ReviewTeaser() {
     </section>
   );
 }
+
+
 
 function CTA() {
   return (

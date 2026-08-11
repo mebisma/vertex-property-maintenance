@@ -62,53 +62,72 @@ function WorkPage() {
         </div>
       </section>
 
-      <section className="bg-background py-24">
-        <div className="mx-auto max-w-7xl space-y-10 px-6">
-          {PROJECTS.map((p, i) => (
-            <article
-              key={p.title}
-              data-reveal
-              data-reveal-delay={String((i % 2) * 80)}
-              className="reveal group grid gap-8 overflow-hidden rounded-3xl border border-border bg-card md:grid-cols-12"
-            >
-              <div className={`relative aspect-[16/10] overflow-hidden md:col-span-5 md:aspect-auto ${i % 2 ? "md:order-2" : ""}`}>
-                <img
-                  src={IMAGES[i % IMAGES.length]}
-                  alt={`${p.client} project`}
-                  width={1200}
-                  height={900}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent opacity-70" />
-              </div>
-              <div className="p-8 md:col-span-7 md:p-12">
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                    {p.year}
-                  </span>
-                  {p.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-full border border-border px-3 py-1 text-[11px] font-semibold text-muted-foreground"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <p className="mt-5 font-display text-sm font-bold uppercase tracking-[0.16em] text-ember">
-                  {p.client}
-                </p>
-                <h2 className="mt-3 font-display text-2xl font-black leading-snug md:text-4xl">
-                  {p.title}
-                </h2>
-                <p className="mt-4 leading-relaxed text-muted-foreground">{p.scope}</p>
-                <p className="mt-6 border-l-2 border-ember pl-5 font-medium">{p.result}</p>
-              </div>
-            </article>
-          ))}
+      
+<section className="bg-background py-24">
+  <div className="mx-auto max-w-7xl space-y-10 px-6">
+    {PROJECTS.map((p, i) => (
+      <article
+        key={p.title}
+        data-reveal
+        data-reveal-delay={String((i % 2) * 80)}
+        className="reveal group grid gap-8 overflow-hidden rounded-3xl border border-border bg-card md:grid-cols-12"
+      >
+        {/* Project Image */}
+        <div
+          className={`relative aspect-[16/10] overflow-hidden md:col-span-5 md:aspect-auto ${
+            i % 2 ? "md:order-2" : ""
+          }`}
+        >
+          <img
+            src={IMAGES[i % IMAGES.length]}
+            alt={p.title}
+            width={1200}
+            height={900}
+            loading="lazy"
+            className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110"
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent opacity-70" />
         </div>
-      </section>
+
+        {/* Project Details */}
+        <div className="p-8 md:col-span-7 md:p-12">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              {p.year}
+            </span>
+
+            {p.tags.map((t) => (
+              <span
+                key={t}
+                className="rounded-full border border-border px-3 py-1 text-[11px] font-semibold text-muted-foreground"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+
+          <p className="mt-5 font-display text-sm font-bold uppercase tracking-[0.16em] text-ember">
+            Residential Service
+          </p>
+
+          <h2 className="mt-3 font-display text-2xl font-black leading-snug md:text-4xl">
+            {p.title}
+          </h2>
+
+          <p className="mt-4 leading-relaxed text-muted-foreground">
+            {p.scope}
+          </p>
+
+          <p className="mt-6 border-l-2 border-ember pl-5 font-medium">
+            {p.result}
+          </p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
 
       <section className="border-t border-border bg-muted py-20">
         <div data-reveal className="reveal mx-auto max-w-3xl px-6 text-center">
