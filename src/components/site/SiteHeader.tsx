@@ -61,11 +61,11 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <a
-            href="tel:+18884499349"
+            href="tel:+18888695039"
             className="hidden items-center gap-2 rounded-xl border border-white/15 px-4 py-2.5 text-sm text-white/80 transition-colors hover:border-ember hover:text-white md:inline-flex"
           >
             <Phone className="h-4 w-4" />
-            (888) 449-9349
+            (888) 869-5039
           </a>
           <Link
             to="/request"

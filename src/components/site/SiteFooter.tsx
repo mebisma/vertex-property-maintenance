@@ -11,10 +11,7 @@ export function SiteFooter() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
             <div className="flex items-center gap-3">
-              <img
-                src="/logo-icon.png"
-                className="h-11 w-auto object-contain"
-              />
+              <img src="/logo-icon.png" className="h-11 w-auto object-contain" />
               <span className="font-display text-lg font-extrabold tracking-tight">
                 VERTEX PROPERTY MAINTENANCE INC.
               </span>
@@ -25,10 +22,10 @@ export function SiteFooter() {
             </p>
             <div className="mt-6 space-y-2 text-sm text-white/70">
               <a href="tel:+18005550142" className="flex items-center gap-3 hover:text-ember">
-                <Phone className="h-4 w-4 text-ember" /> (888) 449-9349
+                <Phone className="h-4 w-4 text-ember" /> (888) 869-5039
               </a>
               <a
-                href="mailto:dispatch@vertexpm.com"
+                href="mailto:contact@vertexpropertymaint.com"
                 className="flex items-center gap-3 hover:text-ember"
               >
                 <Mail className="h-4 w-4 text-ember" /> contact@vertexpropertymaint.com

@@ -115,7 +115,7 @@ function AboutPage() {
               {[
                 { v: 22, s: "+", k: "Years" },
                 { v: 140, s: "", k: "Tradespeople" },
-                { v: 10, s: "", k: "Trades" },
+                { v: 11, s: "", k: "Trades" },
               ].map((s) => (
                 <div key={s.k} className="rounded-2xl border border-border bg-card p-5 text-center">
                   <p className="font-display text-3xl font-black text-ember">

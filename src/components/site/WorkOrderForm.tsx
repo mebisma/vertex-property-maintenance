@@ -240,8 +240,8 @@ export function WorkOrderForm() {
       </button>
       <p className="mt-4 text-xs text-white/40">
         Emergency? Call{" "}
-        <a href="tel:+18005550142" className="text-ember hover:underline">
-          (800) 555-0142
+        <a href="tel:+18888695039" className="text-ember hover:underline">
+          (888) 869-5039
         </a>{" "}
         — our line is staffed 24/7.
       </p>

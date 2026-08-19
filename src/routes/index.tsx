@@ -153,7 +153,7 @@ function Layers() {
             What Vertex Property Maintenance Inc. is <span className="text-ember">all about</span>.
           </h2>
           <p className="mt-5 text-muted-foreground">
-            Four layers, stacked. Scroll through and the whole company comes into focus.
+            Scroll through our services and discover everything Vertex can handle for your property.
           </p>
         </div>
 
