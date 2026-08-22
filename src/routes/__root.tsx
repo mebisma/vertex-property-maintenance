@@ -80,6 +80,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        name: "description",
+        content:
+          "Vertex Property Maintenance Inc. provides electrical, carpentry, HVAC, handyman, cleaning, tree removal, and snow removal services. Call us at (888) 869 5039.",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

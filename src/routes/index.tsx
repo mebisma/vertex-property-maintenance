@@ -15,9 +15,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Vertex Property Maintenance Inc. provides electrical, carpentry, HVAC, handyman, cleaning, tree removal and snow removal services for commercial and residential properties.",
+          "Vertex Property Maintenance Inc. provides electrical, carpentry, HVAC, handyman, cleaning, tree removal and snow removal services for commercial and residential properties. Call us at (888) 869 5039.",
       },
-      { property: "og:title", content: "Vertex Property Maintenance Inc. — Every Trade, One Contract" },
+      {
+        property: "og:title",
+        content: "Vertex Property Maintenance Inc. — Every Trade, One Contract",
+      },
       {
         property: "og:description",
         content:
@@ -29,6 +32,7 @@ export const Route = createFileRoute("/")({
   }),
   component: Home,
 });
+
 
 function Home() {
   useReveal();
