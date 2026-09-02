@@ -15,7 +15,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Founded in 2003, Vertex Property Maintenance Inc. runs 140 in-house tradespeople across ten disciplines with 24/7 dispatch and documented close-out on every job.",
+          "Vertex Property Maintenance Inc. runs 140 in-house tradespeople across ten disciplines with 24/7 dispatch and documented close-out on every job.",
       },
       { property: "og:title", content: "About Vertex Property Maintenance Inc." },
       {
@@ -45,22 +45,22 @@ const TEAM = [
 
 const TIMELINE = [
   {
-    y: "2003",
+    y: "2019",
     t: "Where It Started",
     d: "Vertex began with services and a simple goal: deliver dependable maintenance without the runaround."
   },
   {
-    y: "2009",
+    y: "2021",
     t: "Building Our Own Team",
     d: "We brought core trades in-house, expanding our capabilities across electrical, HVAC, carpentry, and general repairs."
   },
   {
-    y: "2015",
+    y: "2023",
     t: "Maintenance, Around the Clock",
     d: "Our 24/7 dispatch operation launched, giving property teams a real person to call when something could not wait."
   },
   {
-    y: "2020",
+    y: "2025",
     t: "More Than Maintenance",
     d: "We expanded into commercial landscaping, tree removal, and seasonal snow services to keep properties covered year-round."
   },
@@ -79,7 +79,7 @@ function AboutPage() {
         eyebrow="About us"
         title="We are Vertex Property"
         accent="Maintenance Inc."
-        lead="Twenty-two years of keeping other people's buildings running — built on our own crews, our own standards and a phone that someone always answers."
+        lead="Years of keeping other people's buildings running — built on our own crews, our own standards and a phone that someone always answers."
       />
 
       <section className="bg-background py-24">
@@ -113,7 +113,7 @@ function AboutPage() {
             </div>
             <div className="mt-6 grid grid-cols-3 gap-4">
               {[
-                { v: 22, s: "+", k: "Years" },
+                { v: 8, s: "+", k: "Years" },
                 { v: 140, s: "", k: "Tradespeople" },
                 { v: 11, s: "", k: "Trades" },
               ].map((s) => (

@@ -18,7 +18,7 @@ export function SiteFooter() {
             </div>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/60">
               Every trade, one contract, one accountable partner. Licensed, bonded and insured —
-              serving owners, managers and facility teams since 2003.
+              serving owners, managers and facility teams.
             </p>
             <div className="mt-6 space-y-2 text-sm text-white/70">
               <a href="tel:+18005550142" className="flex items-center gap-3 hover:text-ember">

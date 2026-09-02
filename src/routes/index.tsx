@@ -59,7 +59,7 @@ function Hero() {
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-6 pb-28 pt-36 md:grid-cols-12 md:pt-44">
         <div className="md:col-span-7">
           <div data-reveal className="reveal">
-            <Eyebrow light>Est. 2003 · Licensed · Bonded · Insured</Eyebrow>
+            <Eyebrow light>Est. 2019· Licensed · Bonded · Insured</Eyebrow>
           </div>
           <h1
             data-reveal
@@ -128,7 +128,7 @@ function Hero() {
           </div>
           <div className="pointer-events-none absolute -left-6 top-10 hidden animate-float rounded-2xl border border-white/15 bg-ink/80 px-5 py-4 backdrop-blur-xl lg:block">
             <p className="text-[11px] uppercase tracking-[0.2em] text-white/50">Trades in-house</p>
-            <p className="font-display text-3xl font-black text-ember">10</p>
+            <p className="font-display text-3xl font-black text-ember">11</p>
           </div>
         </div>
       </div>
@@ -179,15 +179,23 @@ function Layers() {
                     {l.label}
                   </p>
                 </div>
+
                 <div className="md:col-span-7">
                   <h3 className="font-display text-2xl font-black md:text-4xl">{l.title}</h3>
                   <p className="mt-4 max-w-xl leading-relaxed text-muted-foreground">{l.body}</p>
                 </div>
+
                 <div className="md:col-span-3">
                   <div className="rounded-2xl border border-border bg-muted p-6">
                     <p className="font-display text-4xl font-black text-ember">
-                      <Counter to={l.stat.v} suffix={l.stat.s} />
+                      <Counter
+                        to={String(l.n) === "01" ? 8 : String(l.n) === "03" ? 60 : l.stat.v}
+                        suffix={
+                          String(l.n) === "01" ? "" : String(l.n) === "03" ? " min" : l.stat.s
+                        }
+                      />
                     </p>
+
                     <p className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
                       {l.stat.k}
                     </p>
@@ -201,7 +209,6 @@ function Layers() {
     </section>
   );
 }
-
 
 function ServicesStrip() {
   const displayedServices = SERVICES
@@ -316,7 +323,7 @@ function ProofStrip() {
     <section className="border-y border-border bg-muted py-16">
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 md:grid-cols-4">
         {[
-          { v: 22, s: "+", k: "Years in business" },
+          { v: 8, s: "+", k: "Years in business" },
           { v: 140, s: "", k: "Tradespeople on staff" },
           { v: 24, s: "/7", k: "Emergency dispatch" },
           { v: 96, s: "%", k: "First-visit fix rate" },
